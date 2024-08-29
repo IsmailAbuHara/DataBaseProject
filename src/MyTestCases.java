@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 public class MyTestCases {
 
-	WebDriver driver = new ChromeDriver();
+//	WebDriver driver = new ChromeDriver();
 	Random rand = new Random();
 	Random rand2 = new Random();
 
@@ -36,11 +36,10 @@ public class MyTestCases {
 	public void AdddataToThedataBase() throws SQLException {
 
 		randomnumber = rand.nextInt(500);
-
+		
 		System.out.println(randomnumber);
-		String query = "insert into customers (customerNumber,customerName,contactLastName,contactFirstName,phone,addressLine1,addressLine2,city,state,postalCode,country,salesRepEmployeeNumber,creditLimit)VALUES ("
-				+ randomnumber
-				+ " , 'Sunrise Ventures', 'Anderson', 'Michael', '212-555-1234', '123 Main Street', 'Suite 200', 'New York', 'NY', '10001', 'USA', 1621, 50000.00)";
+		String query = "insert into customers (customerNumber,customerName,contactLastName,contactFirstName,phone,addressLine1,addressLine2,city,state,postalCode,country,salesRepEmployeeNumber,creditLimit)VALUES "
+				+ "("+randomnumber +", 'Sunrise Ventures', 'Anderson', 'Michael', '212-555-1234', '123 Main Street', 'Suite 200', 'New York', 'NY', '10001', 'USA', 1621, 50000.00)";
 
 		stmt = con.createStatement();
 
@@ -79,13 +78,13 @@ public class MyTestCases {
 			String firstName = rs.getString("contactFirstName");
 			String lastName = rs.getString("contactLastName");
 
-			driver.get("https://magento.softwaretestingboard.com/customer/account/create/");
+//			driver.get("https://magento.softwaretestingboard.com/customer/account/create/");
+//
+//			WebElement firstnameInputField = driver.findElement(By.id("firstname"));
+//			WebElement LastNameInputField = driver.findElement(By.id("lastname"));
 
-			WebElement firstnameInputField = driver.findElement(By.id("firstname"));
-			WebElement LastNameInputField = driver.findElement(By.id("lastname"));
-
-			firstnameInputField.sendKeys(firstName);
-			LastNameInputField.sendKeys(lastName);
+//			firstnameInputField.sendKeys(firstName);
+//			LastNameInputField.sendKeys(lastName);
 		}
 	}
 
